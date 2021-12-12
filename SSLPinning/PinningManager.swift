@@ -15,7 +15,7 @@ class  PinningManager:NSObject,URLSessionDelegate {
     static let shared = PinningManager()
     
     var isSSLPinningCerti:Bool = false
-    var AlreadyDefind:String = "iie1VXtL7HzAMF+/PVPR9xzT80kQxdZeJ+zduCB3uj0="
+    var AlreadyDefind:String = ""
     
     let rsa2048Asn1Header:[UInt8] = [
         0x30, 0x82, 0x01, 0x22, 0x30, 0x0d, 0x06, 0x09, 0x2a, 0x86, 0x48, 0x86,
@@ -45,8 +45,6 @@ class  PinningManager:NSObject,URLSessionDelegate {
             completionHandler(.cancelAuthenticationChallenge,nil)
             return
         }
-        
-        
         
         //extarct certificate from each api
         if self.isSSLPinningCerti {
